@@ -1,51 +1,66 @@
 import { Component } from '@angular/core';
+import { Userinfo } from './userinfo/userinfo';
 
 @Component({
   selector: 'app-root',
   standalone: true,
+  imports:[Userinfo],
   template: `
-    <article class="offer">
-      <h1>
-        <span>Bonus Offer</span>
-        <span>&dollar;<!-- ITEM PRICE -->{{ item.price }}</span>
-      </h1>
-      <img src="/assets/noun-product-6277512.png" width="400" />
-      <p>
-        <!-- ITEM NAME-->
-        {{ item.name }}
-      </p>
-      <p><!-- ITEM DESCRIPTION -->{{ item.description }}</p>
-      <button>Order Now</button>
-    </article>
+    <section class="menu">🏠 Home</section>
+    <section class="main">
+      <h1>Metrics and Figures Dashboard</h1>
+      <section class="content">
+        <article class="tile">
+        <app-userinfo/>
+
+        </article>
+        <article class="tile">
+          <img src="/assets/noun-pie-chart-6331100-C462DD.png" height="300" />
+        </article>
+        <article class="tile">
+          <img src="/assets/noun-bar-chart-1092111-FF824A.png" height="300" />
+        </article>
+      </section>
+    </section>
   `,
   styles: `
-    .offer {
-      font-family: Verdana;
-      border: solid 1px gray;
-      width: 400px;
-      padding: 20px;
-      border-radius: 3px;
-      color: white;
-      background: #7f6b41;
-    }
-    h1 {
+    :host {
       display: flex;
-      justify-content: space-between;
     }
-    button {
-      display: block;
+    .menu {
+      width: 100px;
+      height: 90vh;
+      background: rgb(29 36 49);;
+      padding: 10px;
+      border-radius: 5px;
+      color: white;
+    }
+    .main {
+      background: rgb(29 36 49);
       width: 100%;
       padding: 10px;
-      border: solid 1px white;
-      border-radius: 3px;
+      margin-left: 10px;
+      border-radius: 5px;
+      color: white;
+    }
+    .tile {
+      width: 400px;
+      height: 400px;
+      background: rgb(67 83 113);
+      padding: 10px;
+      margin: 15px 15px 15px 0;
+      color: white;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .content {
+      display: flex;
+      flex-wrap: wrap;
     }
   `,
 })
 export class AppComponent {
-  item = {
-    name: 'Treasure Trove Trunk',
-    price: 30,
-    description:
-      'Unveil a treasure trove of surprises in this delightful mystery box.',
-  };
+  title = '03-component-composition';
 }
