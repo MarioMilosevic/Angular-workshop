@@ -1,38 +1,42 @@
-.badge {
-  display: inline-block;
-  padding: 5px 10px;
-  border-radius: 5px;
+:host {
+  font-family: sans-serif;
 }
-.badge.silver {
-  background: #888;
+hr {
+  border: 0;
+  border-top: 1px solid #eee;
 }
-.badge.gold {
-  background: #d4af37;
-}
-.badge.platinum {
-  background: #e5e4e2;
-  color: black;
-}
-.membership-info {
+.detail {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  color: #888;
+  font-size: 18px;
 }
-.card-title {
-  font-size: 2rem;
-  font-weight: bold;
-  font-family: "Roboto", sans-serif;
-}
-.card-number {
-  font-family: "Roboto Mono", monospace;
-  font-size: 1.5rem;
-}
-.card {
-  width: 400px;
-  height: 200px;
-  border: 1px solid black;
-  background: black;
-  border-radius: 5px;
+.details {
   padding: 10px;
-  box-shadow: 0 0 5px 0 black;
-  color: white;
+}
+.image-parent {
+  margin: 0;
+  padding: 0;
+}
+.product-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.listing {
+  border-radius: 5px;
+  background: white;
+  margin-bottom: 5px;
+  width: 400px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+.title {
+  font-size: calc(18px * 2);
 }
