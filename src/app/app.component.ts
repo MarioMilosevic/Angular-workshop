@@ -1,61 +1,28 @@
 import { Component } from '@angular/core';
+import { ListingComponent } from './listing/listing.component';
+import { Car } from './car';
 
 @Component({
   selector: 'app-root',
   standalone: true,
+  imports: [ListingComponent],
   template: `
+    <h1>Saved Cars {{ savedCarList.length }}</h1>
     <section class="container">
       <!-- This article element represents and entire listing -->
-      @for(car of carList;track car){
-      <article class="listing">
-        <div class="image-parent">
-          <img class="product-image" src="https://placehold.co/100x100" />
-        </div>
-        <section class="details">
-          <p class="title">
-            {{ car.make }} {{ car.model }}
-            <!-- car make and model-->
-          </p>
-          <hr />
-          <p class="detail">
-            <span>Year</span>
-            <span
-              >{{ car.year
-              }}<!-- year --></span
-            >
-          </p>
-          <div class="detail">
-            <span>Transmission</span>
-            <span
-              >{{ car.transmission
-              }}<!-- transmission --></span
-            >
-          </div>
-          <p class="detail">
-            <span>Mileage</span>
-            <span>
-              {{ car.miles }}
-              <!-- miles --></span
-            >
-          </p>
-          <p class="detail">
-            <span>Price</span>
-            <span>
-              {{ car.price }}
-              <!-- price --></span
-            >
-          </p>
-        </section>
-      </article>
+      @for(car of carList; track car) {
+      <app-listing [car]="car" (carSaved)="mario()" (nesto)="marioMaradona($event)"/>
       } @empty {
-      <p>List is empty</p>
+      <p>No cars</p>
       }
+      <!-- end car listing markup -->
     </section>
   `,
-  styleUrl: 'app.component.css',
+  styles: [],
 })
 export class AppComponent {
-  carList = [
+  savedCarList: Car[] = [];
+  carList: Car[] = [
     {
       make: 'Foyoda',
       model: 'Famery',
@@ -89,4 +56,11 @@ export class AppComponent {
       transmission: 'Automatic',
     },
   ];
+  mario() {
+    console.log("mario")
+  }
+
+  marioMaradona(nesto:string) {
+    console.log(nesto)
+  }
 }
